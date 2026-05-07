@@ -43,5 +43,22 @@ export const BoardStore = signalStore(
         return new_state;
       });
     },
+    addTask(title: string, parent_id: string) {
+      patchState(store, (state) => {
+        const new_state = state;
+        new_state.lists
+          .find((list) => list.id == parent_id)!
+          .tasks.push({
+            id: v4(),
+            title,
+            completed: false,
+            order: !new_state.lists.find((list) => list.id == parent_id)!.tasks.length
+              ? new_state.lists.find((list) => list.id == parent_id)!.tasks.length
+              : 0,
+            arquived: false,
+          });
+        return new_state;
+      });
+    },
   })),
 );
