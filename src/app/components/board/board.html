@@ -1,0 +1,9 @@
+<main class="p-4 flex items-start gap-4 overflow-x-scroll h-full">
+  <ul class="h-full">
+    @for (list of store.lists(); track list.id) {
+      <li class="h-full">
+        <app-todo-list [list_id]="list.id"></app-todo-list>
+      </li>
+    }
+  </ul>
+</main>

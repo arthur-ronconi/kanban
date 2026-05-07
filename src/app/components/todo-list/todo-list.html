@@ -1,0 +1,16 @@
+<div class="rounded-lg bg-gray-900 text-white p-2 w-68 flex flex-col gap-2">
+  <div class="p-2">
+    <div class="flex flex-col gap-2">
+      <span class="font-bold">A fazer</span>
+      <ul class="w-full flex flex-col gap-2">
+        @for (list of store.lists(); track list.id) {
+          @for (task of list.tasks; track task.id) {
+            <li class="w-full">
+              <app-task [title]="task.title"></app-task>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+  </div>
+</div>
